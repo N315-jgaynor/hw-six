@@ -19,6 +19,10 @@ p {
   margin-bottom: 16px;
 }
 
+#app {
+  background-color: #000;
+}
+
 @font-face {
   font-family: Roboto;
   src: url(fonts/Roboto/Roboto-Regular.ttf);
@@ -45,10 +49,10 @@ p {
   background-color: #000;
 }
 .navHolder .nav-logo {
-  margin-left: 50px;
-  width: 224px;
-  height: 130px;
-  background-image: url(../images/logo.png);
+  margin-left: 20px;
+  width: 130px;
+  height: 100px;
+  background-image: url(../images/camping-logo.png);
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -121,6 +125,66 @@ p {
   .navHolder .nav-bars {
     display: flex;
   }
+}
+.products {
+  min-height: 500px;
+  margin: 132px 50px 100px 50px;
+  background-color: purple;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.products h1 {
+  font-family: Roboto-Bold;
+  font-size: 40px;
+  margin: 30px auto;
+}
+.products .products-container {
+  min-height: 500px;
+  background-color: rosybrown;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.products .products-container .product-box {
+  width: 550px;
+  height: 300px;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+}
+.products .products-container .product-box .product-img {
+  border: 2px solid white;
+  width: 250px;
+  height: 250px;
+}
+.products .products-container .product-box .product-desc {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.products .products-container .product-box .product-desc h1 {
+  font-size: 30px;
+  border-bottom: 3px solid white;
+  margin-top: 0px;
+}
+.products .products-container .product-box .product-desc p {
+  font-size: 16px;
+  font-family: Roboto-Light;
+}
+.products .products-container .product-box .product-desc .learn-more {
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: white;
+  color: #000;
+  display: flex;
+  cursor: pointer;
+}
+.products .products-container .product-box .product-desc .learn-more p {
+  margin: auto;
 }
 
 /*# sourceMappingURL=styles.css.map */
