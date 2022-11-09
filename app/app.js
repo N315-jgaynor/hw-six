@@ -89,13 +89,13 @@ function changeRoute() {
     $.get(`pages/${pageID}/${pageID}.html`, function (data) {
       $("#app").html(data);
 
-      loadData();
+      // loadData();
     });
   } else {
     $.get(`pages/products/products.html`, function (data) {
       $("#app").html(data);
 
-      loadData();
+      // loadData();
     });
   }
 }
