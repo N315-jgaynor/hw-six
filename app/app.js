@@ -1,7 +1,7 @@
 var PRODUCTS = [
   {
     prodName: "The North Face Stormbreak 2 Tent",
-    prodThumb: "",
+    prodThumb: "thumb1.png",
     prodImg: "",
     prodBrief:
       "2 person tent designed for the toughest weather conditions. Features a canopy and airflow vents.",
@@ -19,7 +19,7 @@ var PRODUCTS = [
 
   {
     prodName: "Kelty Rumpus 6-Person Tent",
-    prodThumb: "",
+    prodThumb: "thumb2.png",
     prodImg: "",
     prodBrief:
       "This 6 person tent is easy to set up and features wind guards. Perfect for mountain hikes and casual campers alike.",
@@ -32,9 +32,52 @@ var PRODUCTS = [
   },
 ];
 
+// function loadData() {
+//   $.each(PRODUCTS, function (index, product) {
+//     $("#app").append(`<div class="products">
+//     <h1>Popular Products</h1>
+//     <div class="products-container">
+//       <div id="${index}" class="product-box">
+//         <div class="product-img"></div>
+//         <div class="product-desc">
+//           <h1>${product.prodName}</h1>
+//           <p>
+//             short description short description short description short
+//             description short description short description short description
+//             short description short description short description short
+//           </p>
+//           <div class="learn-more">
+//             <p>Learn more</p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//   `);
+//   });
+// }
+
 function loadData() {
-  $.each(PRODUCTS, function (index, game) {
-    $("#app").append(``);
+  $.each(PRODUCTS, function (index, product) {
+    $(".products-container").append(`
+      <div id="${index}" class="product-box">
+        <div class="product-img">
+        <img src="images/${product.prodThumb}" alt="tent thumbnail" /></div>
+        <div class="product-desc">
+          <h1>${product.prodName}</h1>
+          <p>
+            ${product.prodBrief}
+          </p>
+          <div class="learn-more">
+            <p>Learn more</p>
+          </div>
+        </div>
+      </div>
+  `);
+
+    $(".product-img").on(function (product) {
+      css("background-image", `${product.prodImg}`);
+    });
   });
 }
 
@@ -45,10 +88,14 @@ function changeRoute() {
   if (pageID != "") {
     $.get(`pages/${pageID}/${pageID}.html`, function (data) {
       $("#app").html(data);
+
+      loadData();
     });
   } else {
     $.get(`pages/products/products.html`, function (data) {
       $("#app").html(data);
+
+      loadData();
     });
   }
 }

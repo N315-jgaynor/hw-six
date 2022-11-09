@@ -146,6 +146,7 @@ p {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .products .products-container .product-box {
   width: 550px;
@@ -155,7 +156,6 @@ p {
   justify-content: space-between;
 }
 .products .products-container .product-box .product-img {
-  border: 2px solid white;
   width: 250px;
   height: 250px;
 }
