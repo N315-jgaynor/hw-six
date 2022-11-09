@@ -2,7 +2,7 @@ var PRODUCTS = [
   {
     prodName: "The North Face Stormbreak 2 Tent",
     prodThumb: "thumb1.png",
-    prodImg: "",
+    prodImg: "full1.png",
     prodBrief:
       "2 person tent designed for the toughest weather conditions. Features a canopy and airflow vents.",
     prodDesc1:
@@ -20,7 +20,7 @@ var PRODUCTS = [
   {
     prodName: "Kelty Rumpus 6-Person Tent",
     prodThumb: "thumb2.png",
-    prodImg: "",
+    prodImg: "full2.png",
     prodBrief:
       "This 6 person tent is easy to set up and features wind guards. Perfect for mountain hikes and casual campers alike.",
     prodDesc1: "Kelty Quick Corners for quick setup",
@@ -30,54 +30,184 @@ var PRODUCTS = [
     prodRating: "4.5 stars",
     prodPrice: "280",
   },
-];
 
-// function loadData() {
-//   $.each(PRODUCTS, function (index, product) {
-//     $("#app").append(`<div class="products">
-//     <h1>Popular Products</h1>
-//     <div class="products-container">
-//       <div id="${index}" class="product-box">
-//         <div class="product-img"></div>
-//         <div class="product-desc">
-//           <h1>${product.prodName}</h1>
-//           <p>
-//             short description short description short description short
-//             description short description short description short description
-//             short description short description short description short
-//           </p>
-//           <div class="learn-more">
-//             <p>Learn more</p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
-//   `);
-//   });
-// }
+  {
+    prodName: "GCI Outdoor Comfort Chair",
+    prodThumb: "thumb3.png",
+    prodImg: "full3.png",
+    prodBrief:
+      "Premium rocking chair perfect for any terrain and any environment.",
+    prodDesc1: "Premium outdoor rocking camp chair",
+    prodDesc2: "Durable nylon mesh",
+    prodDesc3: "Spring-action rocking technology",
+    prodDesc4: "Carry weight 11 lbs",
+    prodRating: "4.5 stars",
+    prodPrice: "70",
+  },
+
+  {
+    prodName: "YETI Roadie 24 Cooler",
+    prodThumb: "thumb4.png",
+    prodImg: "full4.png",
+    prodBrief:
+      "Durable premium cooler for carrying beverages, food, and so much more!",
+    prodDesc1: "Durable, lightweight cooler",
+    prodDesc2: "Holds up to 18 cans",
+    prodDesc3: "Flexible quick latches",
+    prodDesc4: "Permafrost insulation",
+    prodRating: "4 stars",
+    prodPrice: "50",
+  },
+
+  {
+    prodName: "Solo Stove Bonfire Firepit",
+    prodThumb: "thumb5.png",
+    prodImg: "full5.png",
+    prodBrief:
+      "This portable bonfire is perfect for camping parks that do not allow in-ground fires. Childproof lock included.",
+    prodDesc1: "Double wall construction",
+    prodDesc2: "Included ash pan",
+    prodDesc3: "Vent chamber",
+    prodDesc4: "Childproof",
+    prodRating: "3 stars",
+    prodPrice: "400",
+  },
+
+  {
+    prodName: "Coleman Skydome Darkroom 4-Person Camping Tent",
+    prodThumb: "thumb6.png",
+    prodImg: "full6.png",
+    prodBrief: "4 person tent perfect for any camping environment.",
+    prodDesc1:
+      "Fast & easy set up design allows for quick set up & tear down of tent",
+    prodDesc2:
+      "Dark Room™ technology blocks 90% of sunlight reducing heat inside tent",
+    prodDesc3: "Strengthened frame designed to stand up to 35 mph winds",
+    prodDesc4: "Able to fit one queen sized air mattress",
+    prodRating: "5 stars",
+    prodPrice: "200",
+  },
+
+  {
+    prodName: "",
+    prodThumb: "thumb7.png",
+    prodImg: "full7.png",
+    prodBrief: "",
+    prodDesc1: "",
+    prodDesc2: "",
+    prodDesc3: "",
+    prodDesc4: "",
+    prodRating: "4.5 stars",
+    prodPrice: "350",
+  },
+
+  {
+    prodName: "",
+    prodThumb: "thumb8.png",
+    prodImg: "full8.png",
+    prodBrief: "",
+    prodDesc1: "",
+    prodDesc2: "",
+    prodDesc3: "",
+    prodDesc4: "",
+    prodRating: "5 stars",
+    prodPrice: "350",
+  },
+
+  {
+    prodName: "",
+    prodThumb: "thumb9.png",
+    prodImg: "full9.png",
+    prodBrief: "",
+    prodDesc1: "",
+    prodDesc2: "",
+    prodDesc3: "",
+    prodDesc4: "",
+    prodRating: "5 stars",
+    prodPrice: "350",
+  },
+
+  {
+    prodName: "",
+    prodThumb: "thumb10.png",
+    prodImg: "full10.png",
+    prodBrief: "",
+    prodDesc1: "",
+    prodDesc2: "",
+    prodDesc3: "",
+    prodDesc4: "",
+    prodRating: "5 stars",
+    prodPrice: "350",
+  },
+];
 
 function loadData() {
   $.each(PRODUCTS, function (index, product) {
     $(".products-container").append(`
       <div id="${index}" class="product-box">
         <div class="product-img">
-        <img src="images/${product.prodThumb}" alt="tent thumbnail" /></div>
+        <img src="images/${product.prodThumb}" alt="product thumbnail" /></div>
         <div class="product-desc">
           <h1>${product.prodName}</h1>
           <p>
             ${product.prodBrief}
           </p>
-          <div class="learn-more">
+          <div id="${index}" class="learn-more">
             <p>Learn more</p>
           </div>
         </div>
       </div>
   `);
 
-    $(".product-img").on(function (product) {
-      css("background-image", `${product.prodImg}`);
-    });
+    fullProductListeners();
+  });
+}
+
+function fullProductListeners() {
+  $(".learn-more").click(function (e) {
+    let productIndex = e.currentTarget.id;
+    $("#app").html(`<div class="product-full">
+    <h1>${PRODUCTS[productIndex].prodName}</h1>
+    <div class="prod-full-box">
+      <div class="prod-full-img">
+        <img src="../images/${PRODUCTS[productIndex].prodImg}" alt="" />
+      </div>
+      <div class="prod-full-desc">
+        <li>
+        ${PRODUCTS[productIndex].prodDesc1}
+        </li>
+        <li>
+        ${PRODUCTS[productIndex].prodDesc2}
+        </li>
+        <li>
+        ${PRODUCTS[productIndex].prodDesc3}
+        </li>
+        <li>
+        ${PRODUCTS[productIndex].prodDesc4}
+        </li>
+        <p>Rating: ${PRODUCTS[productIndex].prodRating}</p>
+        <p>$${PRODUCTS[productIndex].prodPrice}USD</p>
+        <div class="close-button">Close</div>
+      </div>
+    </div>
+  </div>`);
+
+    closeListener();
+  });
+}
+
+function initProductsContainer() {
+  $("#app").html(`<div class="products">
+  <h1>Popular Products</h1>
+  <div class="products-container">
+  </div>
+</div>`);
+}
+
+function closeListener() {
+  $(".close-button").click(function () {
+    initProductsContainer();
+    loadData();
   });
 }
 
@@ -89,13 +219,13 @@ function changeRoute() {
     $.get(`pages/${pageID}/${pageID}.html`, function (data) {
       $("#app").html(data);
 
-      // loadData();
+      loadData();
     });
   } else {
     $.get(`pages/products/products.html`, function (data) {
       $("#app").html(data);
 
-      // loadData();
+      loadData();
     });
   }
 }
@@ -121,3 +251,7 @@ $(document).ready(function () {
   initURLListener();
   navListener();
 });
+
+// $(".product-img").on(function (product) {
+//   css("background-image", `${product.prodImg}`);
+// });
