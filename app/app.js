@@ -175,7 +175,7 @@ function fullProductListeners() {
     <h1>${PRODUCTS[productIndex].prodName}</h1>
     <div class="prod-full-box">
       <div class="prod-full-img">
-        <img src="../images/${PRODUCTS[productIndex].prodImg}" alt="" />
+        <img src="images/${PRODUCTS[productIndex].prodImg}" alt="" />
       </div>
       <div class="prod-full-desc">
         <li>
@@ -256,7 +256,3 @@ $(document).ready(function () {
   initURLListener();
   navListener();
 });
-
-// $(".product-img").on(function (product) {
-//   css("background-image", `${product.prodImg}`);
-// });
